@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from './redux/store'
 import { create } from "./redux/user/slice"
+import Login from './pages/Login'
+import { CssBaseline, ThemeProvider } from '@mui/material'
+import theme from './theme'
 function App() {
 
   const user = useSelector((state: RootState) => state.user)
@@ -16,12 +19,10 @@ function App() {
     }))
   }
   return (
-    <>
-      <h1>hello world</h1>
-      <p>{user.first_name + ' ' + user.last_name}</p>
-      <p>{user.email}</p>
-      <button onClick={handleLogin}>click</button>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Login />
+    </ThemeProvider>
   )
 }
 
