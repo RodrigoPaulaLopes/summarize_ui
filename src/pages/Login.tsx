@@ -22,7 +22,7 @@ const LoginPage: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         bgcolor: 'background.default',
-        p: 3,
+        py: 3,
         backgroundImage: 'radial-gradient(circle at 50% 14%, rgba(79, 93, 117, 0.04) 0%, rgba(45, 49, 66, 0.06) 60%)',
       }}
     >
