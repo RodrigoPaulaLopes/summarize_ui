@@ -46,23 +46,6 @@ const LoginPage: React.FC = () => {
             }}
           />
           <CardContent sx={{ p: isMobile ? 3 : 4 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 4 }}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: 'primary.main',
-                  color: 'white',
-                  mb: 2,
-                }}
-              >
-                <Lock size={28} />
-              </Box>
-            </Box>
             
             <Typography 
               variant="h4" 
@@ -88,52 +71,7 @@ const LoginPage: React.FC = () => {
             </Typography>
             
             <LoginForm onSubmit={handleLogin} />
-            
-            <Box
-              sx={{
-                mt: 4,
-                pt: 3,
-                borderTop: `1px solid ${theme.palette.divider}`,
-                textAlign: 'center',
-              }}
-            >
-              <Typography variant="body2" color="text.secondary">
-                Or continue with social media
-              </Typography>
-              
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  gap: 2,
-                  mt: 2,
-                }}
-              >
-                {['#4267B2', '#1DA1F2', '#DB4437'].map((color, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      bgcolor: 'background.default',
-                      color: color,
-                      cursor: 'pointer',
-                      transition: 'all 0.2s ease',
-                      '&:hover': {
-                        transform: 'scale(1.1)',
-                        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                      },
-                    }}
-                  >
-                    <Mail size={20} />
-                  </Box>
-                ))}
-              </Box>
-            </Box>
+        
           </CardContent>
         </Card>
       </Container>
