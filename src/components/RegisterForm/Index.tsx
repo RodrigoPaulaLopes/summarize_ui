@@ -100,9 +100,9 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ width: '100%' }}>
+    <Box component="form" onSubmit={handleSubmit}  sx={{ width: '100%' }} >
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
+        <Grid justifyItems={'center'} alignItems={'center'} size={{xs: 12, sm: 6}}>
           <TextField
             required
             fullWidth
@@ -122,7 +122,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{xs: 12, sm: 6}}>
           <TextField
             required
             fullWidth

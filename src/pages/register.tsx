@@ -46,23 +46,6 @@ const SignUpPage: React.FC = () => {
             }}
           />
           <CardContent sx={{ p: isMobile ? 3 : 4 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 4 }}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: 60,
-                  height: 60,
-                  borderRadius: '50%',
-                  bgcolor: 'primary.main',
-                  color: 'white',
-                  mb: 2,
-                }}
-              >
-                <UserPlus size={28} />
-              </Box>
-            </Box>
             
             <Typography 
               variant="h4" 

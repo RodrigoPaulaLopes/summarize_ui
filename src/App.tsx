@@ -4,6 +4,7 @@ import { create } from "./redux/user/slice"
 import Login from './pages/Login'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import theme from './theme'
+import SignUpPage from './pages/register'
 function App() {
 
   const user = useSelector((state: RootState) => state.user)
@@ -21,7 +22,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Login />
+      <SignUpPage />
     </ThemeProvider>
   )
 }
