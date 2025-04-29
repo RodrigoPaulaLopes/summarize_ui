@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card, CardContent, Typography, Container, useTheme, useMediaQuery } from '@mui/material';
 import { UserPlus } from 'lucide-react';
-import SignUpForm from '../components/SignUpForm';
+import SignUpForm from '../components/RegisterForm/Index';
 
 const SignUpPage: React.FC = () => {
   const theme = useTheme();
