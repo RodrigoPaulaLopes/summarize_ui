@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Box, 
-  TextField, 
-  Button, 
-  FormControlLabel, 
-  Checkbox, 
-  Typography, 
-  InputAdornment, 
-  IconButton 
+import {
+  Box,
+  TextField,
+  Button,
+  FormControlLabel,
+  Checkbox,
+  Typography,
+  InputAdornment,
+  IconButton
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 interface LoginFormProps {
   onSubmit: (email: string, password: string, remember: boolean) => void;
@@ -46,13 +47,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    
+
     const emailValidationResult = validateEmail(email);
     const passwordValidationResult = validatePassword(password);
-    
+
     setEmailError(emailValidationResult);
     setPasswordError(passwordValidationResult);
-    
+
     if (!emailValidationResult && !passwordValidationResult) {
       onSubmit(email, password, remember);
     }
@@ -121,10 +122,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
       />
       <FormControlLabel
         control={
-          <Checkbox 
-            checked={remember} 
-            onChange={(e) => setRemember(e.target.checked)} 
-            color="primary" 
+          <Checkbox
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+            color="primary"
           />
         }
         label="Remember me"
@@ -134,8 +135,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         type="submit"
         fullWidth
         variant="contained"
-        sx={{ 
-          mt: 3, 
+        sx={{
+          mt: 3,
           mb: 2,
           py: 1.5,
           fontSize: '1rem',
@@ -145,11 +146,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         Sign In
       </Button>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            cursor: 'pointer', 
-            '&:hover': { 
+        <Typography
+          variant="body2"
+          sx={{
+            cursor: 'pointer',
+            '&:hover': {
               color: 'primary.main',
               textDecoration: 'underline'
             },
@@ -158,19 +159,21 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         >
           Forgot password?
         </Typography>
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            cursor: 'pointer', 
-            '&:hover': { 
-              color: 'primary.main',
-              textDecoration: 'underline'
-            },
-            transition: 'color 0.3s ease'
-          }}
-        >
-          Create an account
-        </Typography>
+        <Link to={"/register"}>
+          <Typography
+            variant="body2"
+            sx={{
+              cursor: 'pointer',
+              '&:hover': {
+                color: 'primary.main',
+                textDecoration: 'underline'
+              },
+              transition: 'color 0.3s ease'
+            }}
+          >
+            Create an account
+          </Typography>
+        </Link>
       </Box>
     </Box>
   );
