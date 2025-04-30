@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from './redux/store'
 import { create } from "./redux/user/slice"
-import Login from './pages/Login'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import theme from './theme'
-import SignUpPage from './pages/register'
 import AppRoutes from './routes/router'
 function App() {
 

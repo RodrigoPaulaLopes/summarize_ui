@@ -1,5 +1,8 @@
 import { useState } from "react";
 import History from "../components/History/Index";
+import Header from "../components/Header/Index";
+import { Container , Box} from "@mui/material";
+import Footer from "../components/Footer/Index";
 
 
 const HistoryPage = () => {
@@ -9,7 +12,7 @@ const HistoryPage = () => {
     const [summarizedText, setSummarizedText] = useState('');
     const [enhancedText, setEnhancedText] = useState('');
     const [showResults, setShowResults] = useState(false);
-
+    const [tab, setTab] = useState<number>(1)
     const handleSelectHistoryItem = (item: any) => {
         setOriginalText(item.originalText);
         setSummarizedText(item.summarizedText);
@@ -25,12 +28,25 @@ const HistoryPage = () => {
         console.log('clear');
 
     }
+    const changeTab = () => {
+        setTab((prevTab) => (prevTab === 1 ? 0 : 1))
+    }
     return (
-        <History
-            items={history}
-            onSelectItem={handleSelectHistoryItem}
-            onClearHistory={handleClearHistory}
-        />
+        <>
+            <Header activeTab={tab} onTabChange={changeTab} />
+            <Box sx={{ flexGrow: 1 }} minHeight={'80vh'} >
+                <Container maxWidth="lg" sx={{ py: 4 }} >
+                    <History
+                        items={history}
+                        onSelectItem={handleSelectHistoryItem}
+                        onClearHistory={handleClearHistory}
+                    />
+                </Container>
+            </Box >
+            <Footer />
+        </>
+
+
     )
 }
 

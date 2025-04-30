@@ -20,8 +20,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
     };
 
     const menuItems = [
-        { icon: <FileText size={20} />, label: 'Processar Texto', value: "/home" },
-        { icon: <HistoryIcon size={20} />, label: 'Meus Textos', value: "/history" },
+        { icon: <FileText size={20} />, label: 'Processar Texto', value: 0, route: "/home" },
+        { icon: <HistoryIcon size={20} />, label: 'Meus Textos', value: 1, route: "/history" },
     ];
 
     const mobileMenu = (
@@ -96,7 +96,7 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
                                 sx={{ ml: 'auto' }}
                             >
                                 {menuItems.map((item) => (
-                                    <Link to={item.value} >
+                                    <Link to={item.route} >
                                         <Tab
                                             key={item.value}
                                             icon={item.icon}
