@@ -27,25 +27,56 @@ const HistoryItem: React.FC<HistoryItemProps> = ({ item, onSelect }) => {
     }
   };
 
-  const preview = item.originalText.length > 150 
-    ? `${item.originalText.substring(0, 150)}...` 
-    : item.originalText;
+  const preview = item.content.length > 150 
+    ? `${item.content.substring(0, 150)}...` 
+    : item.content;
 
   return (
-    <Button
+    <Box
       onClick={() => onSelect(item)}
-      className="w-full text-left p-6 bg-white border border-silver rounded-lg hover:border-coral hover:shadow-lg transition-all duration-200"
+      sx={{
+      width: '100%',
+      padding: 2,
+      backgroundColor: 'white',
+      border: '1px solid silver',
+      borderRadius: 2,
+      boxShadow: 1,
+      '&:hover': {
+        boxShadow: 4,
+        borderColor: 'coral',
+        cursor: 'pointer',
+      },
+      transition: 'all 0.3s',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 2,
+      }}
     >
-      <Box className="flex items-center gap-2 text-sm text-paynes-gray mb-3">
-        <Clock size={16} />
-        <Typography>{formatDate(item.content)}</Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, color: 'paynesGray' }}>
+      <Clock size={16} style={{ color: 'coral' }} />
+      <Typography variant="body2" fontWeight="medium">
+        {formatDate(item.date)}
+      </Typography>
       </Box>
-      <Typography className="text-gunmetal mb-4 line-clamp-3">{preview}</Typography>
-      <Box className="flex items-center gap-2 text-coral font-medium">
-        <Typography>View details</Typography>
-        <ArrowRight size={16} />
+      <Typography
+      variant="body1"
+      sx={{
+        color: 'gunmetal',
+        display: '-webkit-box',
+        WebkitLineClamp: 3,
+        WebkitBoxOrient: 'vertical',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      }}
+      >
+      {preview}
+      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: 'coral', fontWeight: 'medium' }}>
+      <Typography variant="body2">View details</Typography>
+      <ArrowRight size={16} />
       </Box>
-    </Button>
+    </Box>
+
   );
 };
 

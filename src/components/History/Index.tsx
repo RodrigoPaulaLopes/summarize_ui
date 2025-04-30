@@ -20,18 +20,19 @@ const History: React.FC<HistoryProps> = ({ items, onSelectItem, onClearHistory }
 
   return (
     <Box>
-      <Box className="flex justify-between items-center mb-6">
-        <Typography className="text-xl font-semibold text-gunmetal">Recent Texts</Typography>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+        <Typography variant="h6" color="textPrimary">Recent Texts</Typography>
         <Button
           onClick={onClearHistory}
-          className="flex items-center gap-2 px-4 py-2 text-sm text-coral hover:bg-coral/10 rounded-lg transition-colors"
+          variant="outlined"
+          color="primary"
+          startIcon={<Trash2 size={16} />}
         >
-          <Trash2 size={16} />
-          <Typography>Clear history</Typography>
+          Clear history
         </Button>
       </Box>
-      
-      <Box className="grid gap-4">
+
+      <Box display="grid" gap={2}>
         {items.map((item) => (
           <HistoryItem key={item.id} item={item} onSelect={onSelectItem} />
         ))}
