@@ -1,5 +1,6 @@
 import Api from "../config/Api";
 import IToken from "../types/AccessToken";
+import { CreateUser } from "../types/User";
 
 class SummarizeService {
     private readonly api: Api;
@@ -15,6 +16,19 @@ class SummarizeService {
             });
 
             console.log("Login successful:", response.accessToken);
+        } catch (error) {
+            console.error("Login failed:", error);
+            throw new Error("Failed to login. Please check your credentials.");
+        }
+    }
+
+    async register({first_name, last_name, email, password}: CreateUser) {
+        try {
+            const response = await this.api.post<any>("/auth/register", {
+                data: { first_name, last_name, email, password },
+            });
+
+            console.log("register successful:", response);
         } catch (error) {
             console.error("Login failed:", error);
             throw new Error("Failed to login. Please check your credentials.");

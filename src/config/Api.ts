@@ -14,10 +14,7 @@ class Api {
 
     async post<T>(url: string, data: any): Promise<T> {
         try {
-            const response = await this.httpClient.post<T>(url, {
-                email: data.data.email,
-                password: data.data.password
-            });
+            const response = await this.httpClient.post<T>(url, data.data);
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {

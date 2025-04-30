@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import theme from './theme'
 import SignUpPage from './pages/register'
+import AppRoutes from './routes/router'
 function App() {
 
   const user = useSelector((state: RootState) => state.user)
@@ -22,7 +23,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Login />
+      <AppRoutes />
     </ThemeProvider>
   )
 }
