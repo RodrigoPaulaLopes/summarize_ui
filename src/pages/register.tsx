@@ -1,17 +1,16 @@
 import React from 'react';
 import { Box, Card, CardContent, Typography, Container, useTheme, useMediaQuery } from '@mui/material';
-import { UserPlus } from 'lucide-react';
 import SignUpForm from '../components/RegisterForm/Index';
 import { Link } from 'react-router-dom';
+import Summarize from '../services/Summarize';
 
 const SignUpPage: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleSignUp = (firstName: string, lastName: string, email: string, password: string) => {
-    console.log('Sign up attempt:', { firstName, lastName, email });
+  const handleSignUp = async (first_name: string, last_name: string, email: string, password: string) => {
     // Here you would typically handle registration
-    alert(`Sign up attempt for ${firstName} ${lastName} (${email})`);
+    await Summarize.register({ first_name, last_name, email, password })
   };
 
   return (
