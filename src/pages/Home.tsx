@@ -15,7 +15,6 @@ const Home = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [showResults, setShowResults] = useState(false);
     const [history, setHistory] = useState([]);
-    const [activeTab, setActiveTab] = useState(0);
 
     const getHistory = () => {
         return []
@@ -73,13 +72,7 @@ const Home = () => {
         setEnhancedText('');
     };
 
-    const handleSelectHistoryItem = (item: SummaryItem) => {
-        setOriginalText(item.originalText);
-        setSummarizedText(item.summarizedText);
-        setEnhancedText(item.enhancedText);
-        setShowResults(true);
-        setActiveTab(0);
-    };
+
     const clearHistory = () => {
         console.log('clear');
 
@@ -99,25 +92,16 @@ const Home = () => {
             <Box sx={{ flexGrow: 1 }} minHeight={'80vh'} >
                 <Container maxWidth="lg" sx={{ py: 4 }} >
                     <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                        {tab === 0 ? (
-                            showResults ? (
-                                <ResultView
-                                    originalText={originalText}
-                                    summarizedText={summarizedText}
-                                    enhancedText={enhancedText}
-                                    onReset={handleReset}
-                                />
-                            ) : (
-                                <TextInput onSubmit={handleProcessText} isProcessing={isProcessing} />
-                            )
-                        ) : (
-                            <History
-                                items={history}
-                                onSelectItem={handleSelectHistoryItem}
-                                onClearHistory={handleClearHistory}
+                        {showResults ? (
+                            <ResultView
+                                originalText={originalText}
+                                summarizedText={summarizedText}
+                                enhancedText={enhancedText}
+                                onReset={handleReset}
                             />
+                        ) : (
+                            <TextInput onSubmit={handleProcessText} isProcessing={isProcessing} />
                         )}
-
                     </Paper>
                 </Container>
 
