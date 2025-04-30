@@ -1,16 +1,16 @@
 import React from 'react';
 import { Box, Card, CardContent, Typography, Container, useTheme, useMediaQuery } from '@mui/material';
-import { Mail, Lock } from 'lucide-react';
+import Summarize from '../services/Summarize';
 import LoginForm from '../components/LoginForm/Index';
 
 const LoginPage: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   
-  const handleLogin = (email: string, password: string, remember: boolean) => {
+  const handleLogin = async (email: string, password: string, remember: boolean) => {
     console.log('Login attempt:', { email, password, remember });
     // Here you would typically handle authentication
-    alert(`Login attempt with email: ${email} (Remember me: ${remember})`);
+    await Summarize.login(email, password)
   };
 
   return (
