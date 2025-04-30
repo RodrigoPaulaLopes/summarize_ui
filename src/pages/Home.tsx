@@ -3,6 +3,7 @@ import Header from "../components/Header/Index"
 import { useEffect, useState } from "react"
 import ResultView from "../components/ResultVIew/Index"
 import TextInput from "../components/TextInput/Index"
+import History from "../components/History/Index"
 
 
 const Home = () => {
@@ -97,22 +98,29 @@ const Home = () => {
             <Box sx={{ flexGrow: 1 }}>
                 <Container maxWidth="lg" sx={{ py: 4 }}>
                     <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                        {showResults ? (
-                            <ResultView
-                                originalText={originalText}
-                                summarizedText={summarizedText}
-                                enhancedText={enhancedText}
-                                onReset={handleReset}
-                            />
+                        {activeTab === 0 ? (
+                            showResults ? (
+                                <ResultView
+                                    originalText={originalText}
+                                    summarizedText={summarizedText}
+                                    enhancedText={enhancedText}
+                                    onReset={handleReset}
+                                />
+                            ) : (
+                                <TextInput onSubmit={handleProcessText} isProcessing={isProcessing} />
+                            )
                         ) : (
-                            <TextInput onSubmit={handleProcessText} isProcessing={isProcessing} />
+                            <History
+                                items={history}
+                                onSelectItem={handleSelectHistoryItem}
+                                onClearHistory={handleClearHistory}
+                            />
                         )}
-
 
                     </Paper>
                 </Container>
 
-            </Box>
+            </Box >
         </>
     )
 }
