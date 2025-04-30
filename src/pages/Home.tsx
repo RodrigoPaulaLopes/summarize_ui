@@ -99,7 +99,7 @@ const Home = () => {
             <Box sx={{ flexGrow: 1 }} minHeight={'80vh'} >
                 <Container maxWidth="lg" sx={{ py: 4 }} >
                     <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
-                        {activeTab === 0 ? (
+                        {tab === 0 ? (
                             showResults ? (
                                 <ResultView
                                     originalText={originalText}
