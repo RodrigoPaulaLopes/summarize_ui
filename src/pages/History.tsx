@@ -7,7 +7,11 @@ import Footer from "../components/Footer/Index";
 
 const HistoryPage = () => {
 
-    const [history, setHistory] = useState([]);
+    const [history, setHistory] = useState([{
+        id: 1,
+        title: 'hehehehe',
+        content: "sadfasdfasdf"
+    }]);
     const [originalText, setOriginalText] = useState('');
     const [summarizedText, setSummarizedText] = useState('');
     const [enhancedText, setEnhancedText] = useState('');

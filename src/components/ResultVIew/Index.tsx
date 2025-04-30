@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
 
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, TextField, Typography } from '@mui/material';
 
 interface ResultViewProps {
     originalText: string;
@@ -94,9 +94,12 @@ const ResultView: React.FC<ResultViewProps> = ({
                     <Typography sx={{ color: 'text-paynes-gray' }}>{copied ? 'Copiado!' : 'Copiar'}</Typography>
                 </Button>
             </Box>
+            <Box display={'flex'} flexDirection={'column'} gap={2}>
 
-            <Box sx={{ p: 6, backgroundColor: 'white', border: 'solid 1px silver', borderRadius: '10px', mb: 6 }}>
-                <Typography variant='body1' component={'p'} className="whitespace-pre-wrap text-gunmetal">{activeText}</Typography>
+                <TextField disabled label="Digite o titulo" fullWidth />
+                <Box sx={{ p: 6, backgroundColor: 'white', border: 'solid 1px silver', borderRadius: '10px', mb: 6 }}>
+                    <Typography variant='body1' component={'p'} className="whitespace-pre-wrap text-gunmetal">{activeText}</Typography>
+                </Box>
             </Box>
 
             <Box display={'flex'} alignItems={'center'} justifyContent={'center'} gap={2}>

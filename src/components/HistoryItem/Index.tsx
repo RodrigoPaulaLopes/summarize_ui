@@ -38,7 +38,7 @@ const HistoryItem: React.FC<HistoryItemProps> = ({ item, onSelect }) => {
     >
       <Box className="flex items-center gap-2 text-sm text-paynes-gray mb-3">
         <Clock size={16} />
-        <Typography>{formatDate(item.createdAt)}</Typography>
+        <Typography>{formatDate(item.content)}</Typography>
       </Box>
       <Typography className="text-gunmetal mb-4 line-clamp-3">{preview}</Typography>
       <Box className="flex items-center gap-2 text-coral font-medium">

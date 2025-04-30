@@ -32,8 +32,9 @@ const TextInput: React.FC<TextInputProps> = ({ onSubmit, isProcessing }) => {
     const charCount = getCharacterCount(text);
 
     return (
-        <form onSubmit={handleSubmit} className="w-full">
-            <Box className="relative mb-6">
+        <form onSubmit={handleSubmit} className="w-full" >
+            <Box className="relative mb-6" display={'flex'} flexDirection={'column'} gap={2}>
+            <TextField label="Digite o titulo" fullWidth/>
             <TextField
                 label="Cole ou digite seu texto aqui..."
                 multiline
