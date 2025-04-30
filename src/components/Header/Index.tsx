@@ -2,6 +2,7 @@ import React from 'react';
 import { FileText, History as HistoryIcon, AlignJustify, X } from 'lucide-react';
 import { AppBar, Box, Container, IconButton, Tab, Tabs, Toolbar, Typography, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { useTheme, useMediaQuery } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
     activeTab: number;
@@ -19,8 +20,8 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
     };
 
     const menuItems = [
-        { icon: <FileText size={20} />, label: 'Processar Texto', value: 0 },
-        { icon: <HistoryIcon size={20} />, label: 'Meus Textos', value: 1 },
+        { icon: <FileText size={20} />, label: 'Processar Texto', value: "/home" },
+        { icon: <HistoryIcon size={20} />, label: 'Meus Textos', value: "/history" },
     ];
 
     const mobileMenu = (
@@ -95,12 +96,14 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
                                 sx={{ ml: 'auto' }}
                             >
                                 {menuItems.map((item) => (
-                                    <Tab
-                                        key={item.value}
-                                        icon={item.icon}
-                                        label={item.label}
-                                        iconPosition="start"
-                                    />
+                                    <Link to={item.value} >
+                                        <Tab
+                                            key={item.value}
+                                            icon={item.icon}
+                                            label={item.label}
+                                            iconPosition="start"
+                                        />
+                                    </Link>
                                 ))}
                             </Tabs>
                         )}
