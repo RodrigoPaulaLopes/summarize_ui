@@ -96,14 +96,14 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
                                 sx={{ ml: 'auto' }}
                             >
                                 {menuItems.map((item) => (
-                                    <Link to={item.route} >
-                                        <Tab
-                                            key={item.value}
-                                            icon={item.icon}
-                                            label={item.label}
-                                            iconPosition="start"
-                                        />
-                                    </Link>
+                                    <Tab
+                                        key={item.value}
+                                        icon={item.icon}
+                                        label={item.label}
+                                        iconPosition="start"
+                                        component={Link}
+                                        to={item.route}
+                                    />
                                 ))}
                             </Tabs>
                         )}
