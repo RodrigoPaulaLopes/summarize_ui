@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import ResultView from "../components/ResultVIew/Index"
 import TextInput from "../components/TextInput/Index"
 import History from "../components/History/Index"
+import Footer from "../components/Footer/Index"
 
 
 const Home = () => {
@@ -95,8 +96,8 @@ const Home = () => {
     return (
         <>
             <Header activeTab={tab} onTabChange={changeTab} />
-            <Box sx={{ flexGrow: 1 }}>
-                <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Box sx={{ flexGrow: 1 }} minHeight={'80vh'} >
+                <Container maxWidth="lg" sx={{ py: 4 }} >
                     <Paper elevation={2} sx={{ p: 3, borderRadius: 2 }}>
                         {activeTab === 0 ? (
                             showResults ? (
@@ -121,6 +122,7 @@ const Home = () => {
                 </Container>
 
             </Box >
+            <Footer />
         </>
     )
 }
